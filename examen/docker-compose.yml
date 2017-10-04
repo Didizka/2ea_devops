@@ -1,0 +1,19 @@
+web1:
+  build: web
+  ports:
+    - "80:80"
+
+web2:
+  build: web
+  ports:
+    - "81:80"
+
+web3:
+  build: web
+  ports:
+    - "82:80"
+
+web4:
+  build: web
+  ports:
+    - "83:80"

@@ -1,0 +1,21 @@
+# lb
+- hosts: mgr
+  sudo: yes  
+
+
+  tasks:
+
+  - name: install haproxy
+    apt: pkg=haproxy state=latest
+
+  - name: enable haproxy
+    lineinfile: dest=/etc/default/haproxy regexp="^ENABLED" line="ENABLED=1"
+    notify: restart haproxy 
+
+  - name: copy haproxy config
+    shell: sudo cp /vagrant/roles/lb/files/lb_config /etc/haproxy/haproxy.cfg
+
+  handlers:
+
+  - name: restart haproxy
+    service: name=haproxy state=restarted

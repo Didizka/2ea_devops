@@ -1,0 +1,17 @@
+<!-- Get records when the view is loaded -->
+<div ng-controller="DashboardController" data-ng-init="getRecords()">
+    <h3>Your records</h3>
+    <select  ng-model="selectedRecord" ng-change="displayGraph()">
+        <option ng-repeat="record in user.records">{{ record }}</option>
+    </select>
+    <h4>Personal Info</h4>
+    
+    <p class="infoText">Name: {{user.firstname}} {{user.lastname}}</p>
+    <p class="infoText">Age: {{user.age}}</p>
+    <p class="infoText">Email: {{user.email}}</p>
+</div>
+
+
+    <div>
+    <div id="chart1_div" class="col-lg-12"></div>
+</div>

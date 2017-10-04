@@ -1,0 +1,52 @@
+[35027.505829] invalid opcode: 0000 [#1] SMP 
+[35027.567285] Modules linked in: vboxsf(OE) ppdev isofs vboxvideo(OE) drm_kms_helper ttm drm input_leds syscopyarea sysfillrect serio_raw sysimgblt fb_sys_fops vboxguest(OE) parport_pc parport video ib_iser rdma_cm iw_cm ib_cm ib_sa ib_mad ib_core ib_addr iscsi_tcp libiscsi_tcp libiscsi scsi_transport_iscsi autofs4 btrfs raid10 raid456 async_raid6_recov async_memcpy async_pq async_xor async_tx xor raid6_pq libcrc32c raid1 raid0 multipath linear crct10dif_pclmul crc32_pclmul ghash_clmulni_intel mptspi scsi_transport_spi mptscsih aesni_intel aes_x86_64 lrw gf128mul glue_helper ablk_helper cryptd psmouse mptbase e1000
+[35027.953574] CPU: 0 PID: 0 Comm: swapper/0 Tainted: G           OE   4.4.0-63-generic #84-Ubuntu
+[35028.096070] Hardware name: innotek GmbH VirtualBox/VirtualBox, BIOS VirtualBox 12/01/2006
+[35028.249961] task: ffffffff81e11500 ti: ffffffff81e00000 task.ti: ffffffff81e00000
+[35028.383211] RIP: 0010:[<ffffffff810637d7>]  [<ffffffff810637d7>] kvm_kick_cpu+0x27/0x30
+[35028.449460] RSP: 0018:ffff88003fc03e70  EFLAGS: 00010046
+[35028.453325] RAX: 0000000000000005 RBX: 0000000000000000 RCX: 0000000000000001
+[35028.472640] RDX: ffff88003fd00000 RSI: 00000000000000dc RDI: 0000000000000001
+[35028.511384] RBP: ffff88003fc03e78 R08: 0000000000000100 R09: ffff88003ffaf780
+[35028.537255] R10: 0000000058d814df R11: 000000001819fa06 R12: 0000000000000000
+[35028.538223] R13: 0000000000800000 R14: 0000000000000000 R15: 000000000010f83a
+[35028.570722] FS:  0000000000000000(0000) GS:ffff88003fc00000(0000) knlGS:0000000000000000
+[35028.700629] CS:  0010 DS: 0000 ES: 0000 CR0: 000000008005003b
+[35028.827008] CR2: 00007f267b0d8000 CR3: 000000003b743000 CR4: 00000000000406f0
+[35028.989838] Stack:
+[35029.044211]  001dcd6500000000 ffff88003fc03ed8 ffffffff810cb3d2 ffffffff810caeb1
+[35029.163814]  000000001819fa06 0000000058d814df 0000000000000000 0000000000000000
+[35029.336730]  ffffffff821532c8 0000000000000046 00001fd7a9ccf57c 0000000000000000
+[35029.525168] Call Trace:
+[35029.552655]  <IRQ> 
+[35029.560050]  [<ffffffff810cb3d2>] __pv_queued_spin_unlock+0xb2/0xf0
+[35029.665106]  [<ffffffff810caeb1>] ? __raw_callee_save___pv_queued_spin_unlock+0x11/0x20
+[35029.797177]  [<ffffffff8183c040>] ? _raw_spin_unlock_irqrestore+0x10/0x20
+[35029.953958]  [<ffffffff810f7053>] update_wall_time+0x483/0x7a0
+[35030.070592]  [<ffffffff810caeb1>] ? __raw_callee_save___pv_queued_spin_unlock+0x11/0x20
+[35030.275232]  [<ffffffff810fef00>] tick_do_update_jiffies64+0xa0/0x100
+[35030.449513]  [<ffffffff810ff7e0>] tick_irq_enter+0x70/0xc0
+[35030.569456]  [<ffffffff81085ffc>] irq_enter+0x4c/0x60
+[35030.690648]  [<ffffffff8183f07f>] smp_apic_timer_interrupt+0x1f/0x50
+[35030.863714]  [<ffffffff8183d362>] apic_timer_interrupt+0x82/0x90
+[35030.985305]  <EOI> 
+[35031.002150]  [<ffffffff810645d6>] ? native_safe_halt+0x6/0x10
+[35031.170865]  [<ffffffff81038e1e>] default_idle+0x1e/0xe0
+[35031.289109]  [<ffffffff8103962f>] arch_cpu_idle+0xf/0x20
+[35031.435273]  [<ffffffff810c44da>] default_idle_call+0x2a/0x40
+[35031.567266]  [<ffffffff810c4841>] cpu_startup_entry+0x2f1/0x350
+[35031.723231]  [<ffffffff8182ff0c>] rest_init+0x7c/0x80
+[35031.841895]  [<ffffffff81f5e011>] start_kernel+0x481/0x4a2
+[35031.974587]  [<ffffffff81f5d120>] ? early_idt_handler_array+0x120/0x120
+[35032.050019]  [<ffffffff81f5d339>] x86_64_start_reservations+0x2a/0x2c
+[35032.165229]  [<ffffffff81f5d485>] x86_64_start_kernel+0x14a/0x16d
+[35032.310051] Code: 5d c3 66 90 0f 1f 44 00 00 48 63 ff 55 48 c7 c0 f0 a1 00 00 48 8b 14 fd 40 75 f3 81 48 89 e5 53 31 db 0f b7 0c 02 b8 05 00 00 00 <0f> 01 c1 5b 5d c3 0f 1f 00 0f 1f 44 00 00 55 48 83 fe 15 48 89 
+[35032.657811] RIP  [<ffffffff810637d7>] kvm_kick_cpu+0x27/0x30
+[35032.810118]  RSP <ffff88003fc03e70>
+[35032.897096] fbcon_switch: detected unhandled fb_set_par error, error code -16
+[35033.025901] fbcon_switch: detected unhandled fb_set_par error, error code -16
+[35033.142073] ---[ end trace 3617f5ed18154532 ]---
+[35033.259924] Kernel panic - not syncing: Fatal exception in interrupt
+[35034.483569] Shutting down cpus with NMI
+[35034.538634] Kernel Offset: disabled
+[35034.624500] ---[ end Kernel panic - not syncing: Fatal exception in interrupt

@@ -1,0 +1,42 @@
+    <!-- Hospitals Section -->
+    <section id="hospitals">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Nearby hospitals in Antwerp</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Street</th>
+				<th>Place</th>
+				<th>Link</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="hospital in hospitals">
+				<td>{{hospital.label}}</td>
+				<td>{{hospital.straatnaam}} {{hospital.huisnummer}}</td>
+				<td>{{hospital.postcode}} Antwerpen</td>
+				<td><a href="{{hospital.link}}" target="_blank">{{hospital.link}}</a></td>
+			</tr>
+		</tbody>
+	</table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+	
+
+
+
+
